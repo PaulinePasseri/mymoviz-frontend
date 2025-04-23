@@ -16,7 +16,7 @@ function Home() {
     .then(response => response.json())
     .then(data => {
       const imageURL = 'https://image.tmdb.org/t/p/w500/'
-      for (const movie of data.movies.results) {
+      for (const movie of data.movies) {
         moviesData.push({title: movie.original_title, poster: `${imageURL}${movie.poster_path}`, voteAverage: movie.vote_average, voteCount: movie.vote_count, overview: `${movie.overview.length > 250 ? movie.overview.slice(0, 250)+'...' : movie.overview}`})
       }
       setMoviesList(moviesData)
